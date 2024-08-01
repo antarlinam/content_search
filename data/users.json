@@ -1,0 +1,32 @@
+[
+    {
+        "name": "John Dow",
+        "interests": [
+        {
+            "type": "country",
+            "value": "UK",
+            "threshold": 0.2
+        }
+        ]
+    },
+    {
+        "name": "Kim Roberts",
+        "interests": [
+        {
+            "type": "country",
+            "value": "SG",
+            "threshold": 0.4
+        }
+        ]
+    },
+    {
+        "name": "Kim Roberts",
+        "interests": [
+        {
+            "type": "country",
+            "value": "AU",
+            "threshold": 0.3
+        }
+        ]
+    }
+]
