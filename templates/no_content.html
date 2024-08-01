@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    Metadata and linking to external resources 
+    - Specifies the character encoding as UTF-8
+    - Sets the title of the webpage as "No Content Found"
+    - Links to the external stylesheet located at static/css/styles.css
+    -->
+    <meta charset="UTF-8">
+    <title>No Content Found</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- 
+    Header section 
+    - Contains a banner image
+    - The image is loaded from static/images/netflix_4.jpg
+    - Provides a visual header for the page
+    -->
+    <header>
+        <img src="{{ url_for('static', filename='images/netflix_4.jpg') }}" alt="Banner">
+    </header>
+    <!-- 
+    Main content area 
+    - Displays a message indicating that no relevant content was found for the entered name
+    - Provides a form for entering a new name to search for relevant content
+    -->
+    <h1>No relevant content found for {{ name }}</h1>
+    <!-- 
+    Form for entering a new name 
+    - Allows users to search for content related to another name
+    - Form data is sent via POST method upon submission
+    -->
+    <form action="/" method="POST">
+        <label for="name">Enter a new name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    Linking to external resources 
+    - Specifies the character encoding as UTF-8
+    - Sets the title dynamically based on the user's name
+    - Links to the external stylesheet located at static/css/styles.css
+    -->
+    <meta charset="UTF-8">
+    <title>Relevant Content for {{ user.name }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- 
+    Header section 
+    - Contains a banner image
+    - The image is loaded from static/images/netflix_4.jpg
+    - Provides a visual header for the page
+    -->
+    <header>
+        <img src="{{ url_for('static', filename='images/netflix_4.jpg') }}" alt="Banner">
+    </header>
+    <!-- 
+    Main content area 
+    - Displays the title with the user's name
+    - Provides a form for entering a new name to search for relevant content
+    -->
+    <h1>Relevant Content for {{ user.name }}</h1>
+    <!-- 
+    Form for entering a new name 
+    - Allows users to search for content related to another name
+    - Form data is sent via POST method upon submission
+    -->
+    <form action="/" method="POST" class="name-form">
+        <label for="name">Enter a new name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Submit</button>
+    </form>
+    <!-- 
+    Conditional display of matched content 
+    - Checks if there are matches found for the user
+    - Displays content in a categorized manner based on the content category
+    -->
+    {% if has_matches %}
+        <!-- 
+        Loop through each content category and display its matched contents
+        - Each category has a separate table with content details
+        -->
+        {% for category, contents in matched_content.items() %}
+            {% if contents %}
+                <h2 class="category-title">{{ category }}</h2>
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th>
+                    </tr>
+                    {% for content in contents %}
+                        <tr>
+                            <td>{{ content.title }}</td>
+                            <td>{{ content.content }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <!-- 
+        Display message if no relevant content is found for the user's name
+        - Encourages the user to enter a new name to search again
+        -->
+        <p>No relevant content found for {{ user.name }}. Please enter a new name to search again.</p>
+    {% endif %}
+</body>
+</html>
