@@ -5,7 +5,7 @@ from Netflix and in no way intend to cause any copyright violations. It is assum
 
 ## Setup
 
-1. Unzip the folder and navigate to within the flask_app directory. You should be able to see "app.py" when you use the "ls" command
+1. Unzip the folder and navigate to within the content_search-main directory. You should be able to see "app.py" when you use the "ls" command
 2. Open terminal and navigate to the unzipped folder
 3. Write the following command :
     ```
